@@ -232,7 +232,10 @@ def mainFCN():
                             if sp2 < 0:
                                 sp2=0
 
-                            currentVechiles[cIndex_2].setVelocity(sp1)
+                            if currentVechiles[cIndex_2].getVelocity()  == 0 :
+                                currentVechiles[cIndex_2].setVelocity(0.1)
+                            else :
+                                currentVechiles[cIndex_2].setVelocity(sp1)
                             currentVechiles[cIndex_1].setVelocity(sp2)
 
                         elif dist_from_c_list[cIndex_1] == dist_from_c_list[cIndex_2] :
@@ -242,17 +245,20 @@ def mainFCN():
 
                         else:
                             
-                            sp1 = 0.5
+                            sp1 = 0.4
                             sp2 = currentVechiles[cIndex_1].getVelocity() - abs(Error_list[cIndex_1][cIndex_2])
                             
-                            if sp1 > 0.5:
-                                sp1=0.5
+                            if sp1 > 0.4:
+                                sp1=0.4
                             if sp2 < 0:
                                 sp2 = 0
                             
                             currentVechiles[cIndex_2].setVelocity(sp2)
 
-                            currentVechiles[cIndex_1].setVelocity(sp1)
+                            if currentVechiles[cIndex_1].getVelocity() == 0 :
+                                currentVechiles[cIndex_1].setVelocity(0.1)
+                            else:
+                                currentVechiles[cIndex_1].setVelocity(sp1)
                     currentVechiles[max_priority_index].setVelocity(0.4)
 
             
